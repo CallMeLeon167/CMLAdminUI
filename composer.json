@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CML_Admin\\UI\\": "src/php/"
+            "CML_Admin\\": "src/php/"
         }
     }
 }

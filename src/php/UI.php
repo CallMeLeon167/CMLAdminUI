@@ -1,8 +1,8 @@
 <?php
 
-namespace CML_Admin\UI;
+namespace CML_Admin;
 
-class Admin_UI
+class UI
 {
     public function __construct()
     {
