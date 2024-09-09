@@ -1,0 +1,22 @@
+{
+    "name": "callmeleon167/cml-admin-ui",
+    "description": "Eine Beschreibung Ihres Packages",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leon Schmidt",
+            "email": "kontakt@callmeleon.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.1",
+        "ext-mysqli": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "CML_Admin\\UI\\": "src/php/"
+        }
+    }
+}
