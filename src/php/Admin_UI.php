@@ -6,6 +6,6 @@ class Admin_UI
 {
     public function __construct()
     {
-        echo "Admin UI Constructed";
+        echo "Admin UI Constructed!";
     }
 }
