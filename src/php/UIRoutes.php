@@ -47,14 +47,28 @@ class UIRoutes extends \CML\Classes\Router
             $db = new \CML\Classes\DB();
 
             $db->sql2db("CREATE TABLE `cml_ui_settings` (
-                `setting_id` int(11) NOT NULL AUTO_INCREMENT,
-                `setting_name` varchar(255) NOT NULL,
-                `setting_value` varchar(255) NOT NULL,
+                `setting_id` int(11) NULL AUTO_INCREMENT,
+                `setting_name` varchar(255) NULL,
+                `setting_value` varchar(255) NULL,
                 PRIMARY KEY (`setting_id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            ");
 
-            $db->sql2db("INSERT INTO `cml_ui_settings` (`setting_name`, `setting_value`) VALUES (`admin_username`, ?)", [$adminUser]);
-            $db->sql2db("INSERT INTO `cml_ui_settings` (`setting_name`, `setting_value`) VALUES (`admin_password`, ?)", [$adminPassword]);
+            $db->sql2db("CREATE TABLE `cml_ui_routes` (
+                `page_id` int(11) NULL AUTO_INCREMENT,
+                `page_name` varchar(255) NULL,
+                `page_slug` varchar(255) NULL,
+                `page_content` text NULL,
+                `page_setting` varchar(1000) NULL,
+                `page_created` timestamp NULL,
+                `page_updated` timestamp NULL,
+                `page_deleted` timestamp NULL,
+                PRIMARY KEY (`page_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            ");
+
+            $db->sql2db("INSERT INTO `cml_ui_settings` (`setting_name`, `setting_value`) VALUES ('admin_username', ?);", array($adminUser));
+            $db->sql2db("INSERT INTO `cml_ui_settings` (`setting_name`, `setting_value`) VALUES ('admin_password', ?);", array(password_hash($adminPassword, PASSWORD_DEFAULT)));
         }
 
         $app->addRoute('GET', '/cml', function () use ($app) {
